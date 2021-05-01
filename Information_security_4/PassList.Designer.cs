@@ -114,7 +114,7 @@ namespace Information_security_4
             // description_label
             // 
             this.description_label.AutoSize = true;
-            this.description_label.Location = new System.Drawing.Point(677, 250);
+            this.description_label.Location = new System.Drawing.Point(678, 306);
             this.description_label.Name = "description_label";
             this.description_label.Size = new System.Drawing.Size(64, 13);
             this.description_label.TabIndex = 4;
