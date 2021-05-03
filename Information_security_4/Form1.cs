@@ -18,6 +18,8 @@ namespace Information_security_4
         public Registration registration = new Registration();
         public PassList passlist = new PassList();
 
+        static public User user = new User();
+
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +35,11 @@ namespace Information_security_4
         {
             if (DBManager.LogInControl(LoginTextbox.Text, PasswordTextbox.Text) == true)
             {
+                /*if (File.ReadAllBytes(user.Login + ".txt") != null) 
+                {
+                    Encryption.FileDecryption(user.Login);
+                }*/
+
                 this.Hide();
                 passlist.Show();
             }

@@ -129,6 +129,7 @@ namespace Information_security_4
             this.exit_label.Size = new System.Drawing.Size(41, 20);
             this.exit_label.TabIndex = 5;
             this.exit_label.Text = "[exit]";
+            this.exit_label.Click += new System.EventHandler(this.exit_label_Click);
             // 
             // show_button
             // 
@@ -194,6 +195,7 @@ namespace Information_security_4
             this.Controls.Add(this.dataGridView1);
             this.Name = "PassList";
             this.Text = "PassList";
+            this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

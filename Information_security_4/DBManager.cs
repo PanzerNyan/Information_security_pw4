@@ -131,6 +131,9 @@ namespace Information_security_4
                     }
                 }
                 MessageBox.Show("Log In successful", "Information");
+
+                Form1.user.Login = textlogin;
+
                 return true;
             }
             catch

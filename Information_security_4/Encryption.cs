@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 
 namespace Information_security_4
 {
-    class Encryption
+    static public class Encryption
     {
         public static void FileEncryption(string login)
         {
