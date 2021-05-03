@@ -43,6 +43,7 @@ namespace Information_security_4
             this.Copy_button = new System.Windows.Forms.Button();
             this.Update_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
+            this.AddNewbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,11 +166,22 @@ namespace Information_security_4
             this.Delete_button.Text = "Delete";
             this.Delete_button.UseVisualStyleBackColor = true;
             // 
+            // AddNewbutton
+            // 
+            this.AddNewbutton.Location = new System.Drawing.Point(677, 12);
+            this.AddNewbutton.Name = "AddNewbutton";
+            this.AddNewbutton.Size = new System.Drawing.Size(105, 30);
+            this.AddNewbutton.TabIndex = 11;
+            this.AddNewbutton.Text = "Add new";
+            this.AddNewbutton.UseVisualStyleBackColor = true;
+            this.AddNewbutton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PassList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 545);
+            this.Controls.Add(this.AddNewbutton);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Update_button);
             this.Controls.Add(this.Copy_button);
@@ -204,5 +216,6 @@ namespace Information_security_4
         private System.Windows.Forms.Button Copy_button;
         private System.Windows.Forms.Button Update_button;
         private System.Windows.Forms.Button Delete_button;
+        private System.Windows.Forms.Button AddNewbutton;
     }
 }

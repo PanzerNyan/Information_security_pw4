@@ -54,6 +54,18 @@ namespace Information_security_4
                     MessageBox.Show("Incomplete data!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+                try
+                {
+
+                    using (FileStream fs = File.Create(Login + ".txt"));
+
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
             }
             catch (Exception ex)
             {
