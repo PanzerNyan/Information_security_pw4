@@ -39,7 +39,6 @@ namespace Information_security_4
             this.app_label = new System.Windows.Forms.Label();
             this.description_label = new System.Windows.Forms.Label();
             this.exit_label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.show_button = new System.Windows.Forms.Button();
             this.Copy_button = new System.Windows.Forms.Button();
             this.Update_button = new System.Windows.Forms.Button();
@@ -130,15 +129,6 @@ namespace Information_security_4
             this.exit_label.TabIndex = 5;
             this.exit_label.Text = "[exit]";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // show_button
             // 
             this.show_button.Location = new System.Drawing.Point(885, 93);
@@ -184,7 +174,6 @@ namespace Information_security_4
             this.Controls.Add(this.Update_button);
             this.Controls.Add(this.Copy_button);
             this.Controls.Add(this.show_button);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.exit_label);
             this.Controls.Add(this.description_label);
             this.Controls.Add(this.app_label);
@@ -211,7 +200,6 @@ namespace Information_security_4
         private System.Windows.Forms.Label app_label;
         private System.Windows.Forms.Label description_label;
         private System.Windows.Forms.Label exit_label;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button show_button;
         private System.Windows.Forms.Button Copy_button;
         private System.Windows.Forms.Button Update_button;

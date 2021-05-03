@@ -16,5 +16,18 @@ namespace Information_security_4
         {
             InitializeComponent();
         }
+
+        private void Reg_button_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0 && textBox2.Text.Length > 0)
+            {
+                DBManager.SendUserData(textBox1.Text, textBox2.Text);
+                this.Hide();
+            }
+            else 
+            {
+                Console.WriteLine("You debil");
+            }
+        }
     }
 }

@@ -90,6 +90,7 @@ namespace Information_security_4
             this.Reg_button.TabIndex = 5;
             this.Reg_button.Text = "Registration";
             this.Reg_button.UseVisualStyleBackColor = true;
+            this.Reg_button.Click += new System.EventHandler(this.Reg_button_Click);
             // 
             // Back_button
             // 

@@ -29,28 +29,21 @@ namespace Information_security_4
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.LoginTextbox = new System.Windows.Forms.TextBox();
             this.LogiIn_label = new System.Windows.Forms.Label();
             this.Login_label = new System.Windows.Forms.Label();
             this.Password_label = new System.Windows.Forms.Label();
             this.LogIn_button = new System.Windows.Forms.Button();
             this.Reg_button = new System.Windows.Forms.Button();
+            this.PasswordTextbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // LoginTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(295, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(12, 123);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(295, 20);
-            this.maskedTextBox1.TabIndex = 1;
+            this.LoginTextbox.Location = new System.Drawing.Point(12, 77);
+            this.LoginTextbox.Name = "LoginTextbox";
+            this.LoginTextbox.Size = new System.Drawing.Size(295, 20);
+            this.LoginTextbox.TabIndex = 0;
             // 
             // LogiIn_label
             // 
@@ -90,6 +83,7 @@ namespace Information_security_4
             this.LogIn_button.TabIndex = 5;
             this.LogIn_button.Text = "Log In";
             this.LogIn_button.UseVisualStyleBackColor = true;
+            this.LogIn_button.Click += new System.EventHandler(this.LogIn_button_Click);
             // 
             // Reg_button
             // 
@@ -99,19 +93,27 @@ namespace Information_security_4
             this.Reg_button.TabIndex = 6;
             this.Reg_button.Text = "Registration";
             this.Reg_button.UseVisualStyleBackColor = true;
+            this.Reg_button.Click += new System.EventHandler(this.Reg_button_Click);
+            // 
+            // PasswordTextbox
+            // 
+            this.PasswordTextbox.Location = new System.Drawing.Point(12, 123);
+            this.PasswordTextbox.Name = "PasswordTextbox";
+            this.PasswordTextbox.Size = new System.Drawing.Size(295, 20);
+            this.PasswordTextbox.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 234);
+            this.Controls.Add(this.PasswordTextbox);
             this.Controls.Add(this.Reg_button);
             this.Controls.Add(this.LogIn_button);
             this.Controls.Add(this.Password_label);
             this.Controls.Add(this.Login_label);
             this.Controls.Add(this.LogiIn_label);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LoginTextbox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -121,13 +123,13 @@ namespace Information_security_4
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox LoginTextbox;
         private System.Windows.Forms.Label LogiIn_label;
         private System.Windows.Forms.Label Login_label;
         private System.Windows.Forms.Label Password_label;
         private System.Windows.Forms.Button LogIn_button;
         private System.Windows.Forms.Button Reg_button;
+        private System.Windows.Forms.TextBox PasswordTextbox;
     }
 }
 

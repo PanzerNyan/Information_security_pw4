@@ -13,7 +13,7 @@ namespace SqlConn
         {
             string host = "127.0.0.1";
             int port = 3306;
-            string database = "oop_practicalwork5";
+            string database = "information_security04";
             string username = "root";
             string password = "";
 
