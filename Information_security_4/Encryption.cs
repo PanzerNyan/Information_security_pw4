@@ -94,10 +94,6 @@ namespace Information_security_4
         {
             UTF8Encoding encoder = new UTF8Encoding();
 
-            // byte[] Key = File.ReadAllBytes("key.txt");
-            //byte[] IV = File.ReadAllBytes("key.txt");
-
-
             byte[] iv = new byte[16];
             byte[] array;
 
@@ -122,25 +118,6 @@ namespace Information_security_4
                 }
             }
             return Convert.ToBase64String(array);
-            /*using (Aes aesAlg = Aes.Create())
-            {
-
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(Key, IV);
-
-                using (MemoryStream msEncrypt = new MemoryStream())
-                {
-                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                        {
-                            swEncrypt.Write(plainText);
-                        }
-                        encrypted = msEncrypt.ToArray();
-                    }
-                }
-            }*/
-
-
 
         }
 
@@ -150,10 +127,6 @@ namespace Information_security_4
         static public string DecryptPass(string cipherText)
         {
             UTF8Encoding encoder = new UTF8Encoding();
-
-            //byte[] Key = File.ReadAllBytes("key.txt");
-            //byte[] IV = File.ReadAllBytes("key.txt");
-            //string plaintext = null;
 
             byte[] iv = new byte[16];
             byte[] buffer = Convert.FromBase64String(cipherText);
@@ -174,23 +147,7 @@ namespace Information_security_4
                         }
                     }
                 }
-            }
-            /*using (Aes aesAlg = Aes.Create())
-            {
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(Key, IV);
-
-                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
-                {
-                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                        {
-
-                            plaintext = srDecrypt.ReadToEnd();
-                        }
-                    }
-                }
-            }*/
+            }          
 
         }
     }
