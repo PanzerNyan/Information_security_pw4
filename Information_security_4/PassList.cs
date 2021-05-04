@@ -66,6 +66,8 @@ namespace Information_security_4
             {
                 MessageBox.Show(ex.Message);
             }
+
+            Application.Exit();
         }
 
 
@@ -92,6 +94,7 @@ namespace Information_security_4
                     }
                 }
                 DataTableFill();
+                ObjDetailsFill();
             }
         }
 
@@ -108,6 +111,35 @@ namespace Information_security_4
               
                
             
+        }
+
+        private void ObjDetailsFill()
+        {
+            title_label.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            password_label.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            app_label.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString();
+            description_label.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
+        }
+
+        private void OnActive(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            DataTableFill();
+            ObjDetailsFill();
+        }
+
+        private void SelectPass(object sender, MouseEventArgs e)
+        {
+            ObjDetailsFill();
+        }
+
+        private void show_button_Click(object sender, EventArgs e)
+        {
+            UTF8Encoding encoder = new UTF8Encoding();
+
+ 
+
+            password_label.Text = Encryption.DecryptPass(password_label.Text);
         }
     }
 }

@@ -49,6 +49,10 @@ namespace Information_security_4
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TitleColumn,
@@ -56,9 +60,12 @@ namespace Information_security_4
             this.AppColumn,
             this.DescriptionColumn});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(659, 521);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPass);
             // 
             // TitleColumn
             // 
@@ -89,7 +96,7 @@ namespace Information_security_4
             this.title_label.Name = "title_label";
             this.title_label.Size = new System.Drawing.Size(42, 20);
             this.title_label.TabIndex = 1;
-            this.title_label.Text = "[titel]";
+            this.title_label.Text = "[title]";
             // 
             // password_label
             // 
@@ -139,6 +146,7 @@ namespace Information_security_4
             this.show_button.TabIndex = 7;
             this.show_button.Text = "Show";
             this.show_button.UseVisualStyleBackColor = true;
+            this.show_button.Click += new System.EventHandler(this.show_button_Click);
             // 
             // Copy_button
             // 
@@ -166,6 +174,7 @@ namespace Information_security_4
             this.Delete_button.TabIndex = 10;
             this.Delete_button.Text = "Delete";
             this.Delete_button.UseVisualStyleBackColor = true;
+            this.Delete_button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPass);
             // 
             // AddNewbutton
             // 
@@ -195,6 +204,7 @@ namespace Information_security_4
             this.Controls.Add(this.dataGridView1);
             this.Name = "PassList";
             this.Text = "PassList";
+            this.Activated += new System.EventHandler(this.OnActive);
             this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

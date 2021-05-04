@@ -26,7 +26,7 @@ namespace Information_security_4
             }
             else 
             {
-                Console.WriteLine("You debil");
+                Console.WriteLine("You wrong");
             }
         }
     }

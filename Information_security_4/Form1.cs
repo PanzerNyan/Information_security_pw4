@@ -19,6 +19,7 @@ namespace Information_security_4
         public PassList passlist = new PassList();
 
         static public User user = new User();
+        //public Encryption encryption = new Encryption();
 
         public Form1()
         {
@@ -50,5 +51,7 @@ namespace Information_security_4
             }
 
         }
+
+
     }
 }

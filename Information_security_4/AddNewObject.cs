@@ -29,12 +29,13 @@ namespace Information_security_4
                     if (PassList.listObj[i].Title == null)
                     {
                         PassList.listObj[i].Title = TitletextBox.Text;
-                        PassList.listObj[i].Password = PasstextBox.Text;
+                        PassList.listObj[i].Password = Encryption.EncryptPass(PasstextBox.Text);
                         PassList.listObj[i].App = ApptextBox.Text;
                         PassList.listObj[i].Descr = DestextBox.Text;
                         break;
                     }
                 }
+                MessageBox.Show("Added");
                 this.Hide();
             }
             catch (Exception ex)

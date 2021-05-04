@@ -12,6 +12,7 @@ namespace Information_security_4
 {
     static public class Encryption
     {
+
         public static void FileEncryption(string login)
         {
             string filekey = null;
@@ -53,6 +54,8 @@ namespace Information_security_4
         {
             string filekey = null;
 
+
+
             try
             {
                 using (StreamReader sr = new StreamReader("filekey.txt"))
@@ -86,5 +89,110 @@ namespace Information_security_4
                 }
             }
         }
+
+        static public string EncryptPass(string plainText)
+        {
+            UTF8Encoding encoder = new UTF8Encoding();
+
+            // byte[] Key = File.ReadAllBytes("key.txt");
+            //byte[] IV = File.ReadAllBytes("key.txt");
+
+
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = File.ReadAllBytes("key.txt");
+                aes.IV = iv;
+
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                        {
+                            streamWriter.Write(plainText);
+                        }
+
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+            return Convert.ToBase64String(array);
+            /*using (Aes aesAlg = Aes.Create())
+            {
+
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(Key, IV);
+
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            swEncrypt.Write(plainText);
+                        }
+                        encrypted = msEncrypt.ToArray();
+                    }
+                }
+            }*/
+
+
+
+        }
+
+
+
+
+        static public string DecryptPass(string cipherText)
+        {
+            UTF8Encoding encoder = new UTF8Encoding();
+
+            //byte[] Key = File.ReadAllBytes("key.txt");
+            //byte[] IV = File.ReadAllBytes("key.txt");
+            //string plaintext = null;
+
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = File.ReadAllBytes("key.txt");
+                aes.IV = iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
+            /*using (Aes aesAlg = Aes.Create())
+            {
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(Key, IV);
+
+                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+                {
+                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                        {
+
+                            plaintext = srDecrypt.ReadToEnd();
+                        }
+                    }
+                }
+            }*/
+
+        }
     }
 }
+  
