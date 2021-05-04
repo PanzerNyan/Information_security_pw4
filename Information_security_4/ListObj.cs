@@ -16,7 +16,7 @@ namespace Information_security_4
         public string App;
         public string Descr;
 
- 
+        
 
     }
 

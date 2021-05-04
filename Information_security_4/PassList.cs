@@ -31,10 +31,10 @@ namespace Information_security_4
                 listObj[i].Descr = null;
 
             }
-                InitializeComponent();
+            InitializeComponent();
 
-            
-          
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Information_security_4
                             sw.WriteLine(listObj[i].Title + ";" + listObj[i].Password + ";" + listObj[i].App + ";" + listObj[i].Descr);
                         }
                     }
-                    else 
+                    else
                     {
                         break;
                     }
@@ -68,14 +68,47 @@ namespace Information_security_4
             }
         }
 
-  
+
 
         private void OnLoad(object sender, EventArgs e)
         {
             if (File.ReadAllBytes(Form1.user.Login + ".txt") != null)
             {
+                string line;
+                int j = 0;
+                using (StreamReader file = new StreamReader(Form1.user.Login + ".txt"))
+                {
+                    while ((line = file.ReadLine()) != null)
+                    {
 
+                        char[] delimiters = new char[] { ';' };
+                        string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                        listObj[j].Title = parts[0];
+                        listObj[j].Password = parts[1];
+                        listObj[j].App = parts[2];
+                        listObj[j].Descr = parts[3];
+                        j++;
+
+                    }
+                }
+                DataTableFill();
             }
+        }
+
+        private void DataTableFill()
+        {
+
+            for (int i = 0; i < 100; i++)
+            {
+                if (listObj[i].Title != null)
+                {
+                    dataGridView1.Rows.Add(listObj[i].Title, listObj[i].Password, listObj[i].App, listObj[i].Descr);
+                }
+            }
+              
+               
+            
         }
     }
 }
+

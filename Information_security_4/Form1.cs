@@ -35,10 +35,11 @@ namespace Information_security_4
         {
             if (DBManager.LogInControl(LoginTextbox.Text, PasswordTextbox.Text) == true)
             {
-                /*if (File.ReadAllBytes(user.Login + ".txt") != null) 
+                if (File.ReadAllBytes(user.Login + ".txt") != null) 
                 {
-                    Encryption.FileDecryption(user.Login);
-                }*/
+
+                    //Encryption.FileDecryption(user.Login);
+                }
 
                 this.Hide();
                 passlist.Show();
