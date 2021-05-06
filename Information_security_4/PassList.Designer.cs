@@ -44,6 +44,8 @@ namespace Information_security_4
             this.Update_button = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
             this.AddNewbutton = new System.Windows.Forms.Button();
+            this.newpass_textBox = new System.Windows.Forms.TextBox();
+            this.Change_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,21 +73,25 @@ namespace Information_security_4
             // 
             this.TitleColumn.HeaderText = "Title";
             this.TitleColumn.Name = "TitleColumn";
+            this.TitleColumn.ReadOnly = true;
             // 
             // PasswordColumn
             // 
             this.PasswordColumn.HeaderText = "Password";
             this.PasswordColumn.Name = "PasswordColumn";
+            this.PasswordColumn.ReadOnly = true;
             // 
             // AppColumn
             // 
             this.AppColumn.HeaderText = "App/URL";
             this.AppColumn.Name = "AppColumn";
+            this.AppColumn.ReadOnly = true;
             // 
             // DescriptionColumn
             // 
             this.DescriptionColumn.HeaderText = "Description";
             this.DescriptionColumn.Name = "DescriptionColumn";
+            this.DescriptionColumn.ReadOnly = true;
             this.DescriptionColumn.Width = 1000;
             // 
             // title_label
@@ -156,6 +162,7 @@ namespace Information_security_4
             this.Copy_button.TabIndex = 8;
             this.Copy_button.Text = "Copy";
             this.Copy_button.UseVisualStyleBackColor = true;
+            this.Copy_button.Click += new System.EventHandler(this.Copy_button_Click);
             // 
             // Update_button
             // 
@@ -165,6 +172,7 @@ namespace Information_security_4
             this.Update_button.TabIndex = 9;
             this.Update_button.Text = "Update";
             this.Update_button.UseVisualStyleBackColor = true;
+            this.Update_button.Click += new System.EventHandler(this.Update_button_Click);
             // 
             // Delete_button
             // 
@@ -174,6 +182,7 @@ namespace Information_security_4
             this.Delete_button.TabIndex = 10;
             this.Delete_button.Text = "Delete";
             this.Delete_button.UseVisualStyleBackColor = true;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             this.Delete_button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPass);
             // 
             // AddNewbutton
@@ -186,11 +195,30 @@ namespace Information_security_4
             this.AddNewbutton.UseVisualStyleBackColor = true;
             this.AddNewbutton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // newpass_textBox
+            // 
+            this.newpass_textBox.Location = new System.Drawing.Point(685, 207);
+            this.newpass_textBox.Name = "newpass_textBox";
+            this.newpass_textBox.Size = new System.Drawing.Size(177, 20);
+            this.newpass_textBox.TabIndex = 12;
+            // 
+            // Change_button
+            // 
+            this.Change_button.Location = new System.Drawing.Point(685, 235);
+            this.Change_button.Name = "Change_button";
+            this.Change_button.Size = new System.Drawing.Size(176, 27);
+            this.Change_button.TabIndex = 13;
+            this.Change_button.Text = "Change!";
+            this.Change_button.UseVisualStyleBackColor = true;
+            this.Change_button.Click += new System.EventHandler(this.Change_button_Click);
+            // 
             // PassList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 545);
+            this.Controls.Add(this.Change_button);
+            this.Controls.Add(this.newpass_textBox);
             this.Controls.Add(this.AddNewbutton);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Update_button);
@@ -229,5 +257,7 @@ namespace Information_security_4
         private System.Windows.Forms.Button Update_button;
         private System.Windows.Forms.Button Delete_button;
         private System.Windows.Forms.Button AddNewbutton;
+        private System.Windows.Forms.TextBox newpass_textBox;
+        private System.Windows.Forms.Button Change_button;
     }
 }

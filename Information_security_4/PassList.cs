@@ -33,7 +33,8 @@ namespace Information_security_4
             }
             InitializeComponent();
 
-
+            newpass_textBox.Hide();
+            Change_button.Hide();
 
         }
 
@@ -74,7 +75,7 @@ namespace Information_security_4
 
         private void OnLoad(object sender, EventArgs e)
         {
-            if (File.ReadAllBytes(Form1.user.Login + ".txt") != null)
+            if (File.ReadAllLines(Form1.user.Login + ".txt").Length != 0)
             {
                 string line;
                 int j = 0;
@@ -123,9 +124,12 @@ namespace Information_security_4
 
         private void OnActive(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            DataTableFill();
-            ObjDetailsFill();
+            if (File.ReadAllLines(Form1.user.Login + ".txt").Length != 0)
+            {
+                dataGridView1.Rows.Clear();
+                DataTableFill();
+                ObjDetailsFill();
+            }
         }
 
         private void SelectPass(object sender, MouseEventArgs e)
@@ -140,6 +144,82 @@ namespace Information_security_4
  
 
             password_label.Text = Encryption.DecryptPass(password_label.Text);
+        }
+
+        private void Copy_button_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(password_label.Text);
+        }
+
+        private int PassSearch(string pass_title) 
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                if (listObj[i].Title != null && listObj[i].Title == pass_title)
+                {
+                    return i;
+                }
+            }
+            return 101;
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int i = PassSearch(title_label.Text);
+                if (i != 101)
+                {
+                    listObj[i].Title = null;
+                    listObj[i].Password = null;
+                    listObj[i].App = null;
+                    listObj[i].Descr = null;
+
+                    dataGridView1.Rows.Clear();
+                    DataTableFill();
+                    ObjDetailsFill();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Update_button_Click(object sender, EventArgs e)
+        {
+            if (newpass_textBox.Visible == true)
+            {
+                newpass_textBox.Hide();
+                Change_button.Hide();
+            }
+            else 
+            {
+                newpass_textBox.Show();
+                Change_button.Show();
+            }
+        }
+
+        private void Change_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int i = PassSearch(title_label.Text);
+                if (i != 101)
+                {
+                    listObj[i].Password = Encryption.EncryptPass(newpass_textBox.Text);
+                }
+                dataGridView1.Rows.Clear();
+                DataTableFill();
+                ObjDetailsFill();
+
+                newpass_textBox.Hide();
+                Change_button.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
