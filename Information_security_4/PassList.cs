@@ -33,6 +33,7 @@ namespace Information_security_4
             }
             InitializeComponent();
 
+            this.ControlBox = false;
             newpass_textBox.Hide();
             Change_button.Hide();
 
@@ -41,6 +42,7 @@ namespace Information_security_4
         private void button1_Click(object sender, EventArgs e)
         {
             addNewObject.Show();
+
         }
 
         private void exit_label_Click(object sender, EventArgs e)
@@ -67,8 +69,11 @@ namespace Information_security_4
             {
                 MessageBox.Show(ex.Message);
             }
-
-            Application.Exit();
+            if (File.ReadAllLines(Form1.user.Login + ".txt").Length != 0)
+            {
+                Encryption.FileEncryption(Form1.user.Login);
+            }
+                Application.Exit();
         }
 
 
@@ -129,6 +134,16 @@ namespace Information_security_4
                 dataGridView1.Rows.Clear();
                 DataTableFill();
                 ObjDetailsFill();
+            }
+            for (int i = 0; i < 100; i++)
+            {
+                if (listObj[i].Title != null)
+                {
+                    dataGridView1.Rows.Clear();
+                    DataTableFill();
+                    ObjDetailsFill();
+                    break;
+                }
             }
         }
 

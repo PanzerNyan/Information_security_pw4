@@ -36,6 +36,7 @@ namespace Information_security_4
             this.label3 = new System.Windows.Forms.Label();
             this.Reg_button = new System.Windows.Forms.Button();
             this.Back_button = new System.Windows.Forms.Button();
+            this.randpass_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -49,7 +50,7 @@ namespace Information_security_4
             // 
             this.textBox2.Location = new System.Drawing.Point(12, 145);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(353, 20);
+            this.textBox2.Size = new System.Drawing.Size(255, 20);
             this.textBox2.TabIndex = 1;
             // 
             // label1
@@ -101,11 +102,22 @@ namespace Information_security_4
             this.Back_button.Text = "Back";
             this.Back_button.UseVisualStyleBackColor = true;
             // 
+            // randpass_button
+            // 
+            this.randpass_button.Location = new System.Drawing.Point(273, 145);
+            this.randpass_button.Name = "randpass_button";
+            this.randpass_button.Size = new System.Drawing.Size(92, 19);
+            this.randpass_button.TabIndex = 7;
+            this.randpass_button.Text = "Generate";
+            this.randpass_button.UseVisualStyleBackColor = true;
+            this.randpass_button.Click += new System.EventHandler(this.randpass_button_Click);
+            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 259);
+            this.Controls.Add(this.randpass_button);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Reg_button);
             this.Controls.Add(this.label3);
@@ -129,5 +141,6 @@ namespace Information_security_4
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Reg_button;
         private System.Windows.Forms.Button Back_button;
+        private System.Windows.Forms.Button randpass_button;
     }
 }

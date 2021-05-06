@@ -18,6 +18,7 @@ namespace Information_security_4
         public AddNewObject()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
 
         private void Addbutton_Click(object sender, EventArgs e)

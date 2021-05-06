@@ -15,6 +15,7 @@ namespace Information_security_4
         public Registration()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
 
         private void Reg_button_Click(object sender, EventArgs e)
@@ -28,6 +29,19 @@ namespace Information_security_4
             {
                 Console.WriteLine("You wrong");
             }
+        }
+
+        private void randpass_button_Click(object sender, EventArgs e)
+        {
+            string pass = "";
+            var r = new Random();
+            while (pass.Length < 16)
+            {
+                Char c = (char)r.Next(33, 125);
+                if (Char.IsLetterOrDigit(c))
+                    pass += c;
+            }
+            textBox2.Text = pass;
         }
     }
 }

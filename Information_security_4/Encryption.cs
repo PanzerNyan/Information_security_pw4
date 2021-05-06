@@ -12,9 +12,46 @@ namespace Information_security_4
 {
     static public class Encryption
     {
+        public static void FileEncryption(string login)
+        {
+            string filekey = null;
 
-       
-        
+            byte[] plainContent = File.ReadAllBytes(login + ".txt");
+
+            try
+            {
+                using (StreamReader sr = new StreamReader("filekey.txt"))
+                {
+                    filekey = (sr.ReadToEnd());
+                }
+
+            
+
+            using (var DES = new DESCryptoServiceProvider()) 
+            {
+                DES.IV = Encoding.UTF8.GetBytes(filekey);
+                DES.Key = Encoding.UTF8.GetBytes(filekey);
+                DES.Mode = CipherMode.CBC;
+                DES.Padding = PaddingMode.PKCS7;
+
+                using (var memStream = new MemoryStream()) 
+                {
+                    CryptoStream cryptoStream = new CryptoStream(memStream, DES.CreateEncryptor(), CryptoStreamMode.Write);
+
+                    cryptoStream.Write(plainContent, 0, plainContent.Length);
+                    cryptoStream.FlushFinalBlock();
+                    File.WriteAllBytes(login + ".txt", memStream.ToArray());
+
+                }
+            }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+
 
         public static void FileDecryption(string login)
         {

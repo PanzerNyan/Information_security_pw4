@@ -24,7 +24,7 @@ namespace Information_security_4
         public Form1()
         {
             InitializeComponent();
-
+            this.ControlBox = false;
         }
 
         private void Reg_button_Click(object sender, EventArgs e)
@@ -36,10 +36,12 @@ namespace Information_security_4
         {
             if (DBManager.LogInControl(LoginTextbox.Text, PasswordTextbox.Text) == true)
             {
-                if (File.ReadAllBytes(user.Login + ".txt") != null) 
+                if (File.ReadAllLines(user.Login + ".txt").Length != 0)
                 {
+                    {
 
-                    //Encryption.FileDecryption(user.Login);
+                        Encryption.FileDecryption(user.Login);
+                    }
                 }
 
                 this.Hide();
