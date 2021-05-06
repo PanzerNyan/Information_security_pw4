@@ -221,6 +221,24 @@ namespace Information_security_4
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= dataGridView1.Rows.Count - 1; i++) 
+            {
+                for (int j = 0; j <= dataGridView1.ColumnCount - 1; j++) 
+                {
+                    if (dataGridView1.Rows[i].Cells[j].Value != null && dataGridView1.Rows[i].Cells[j].Value.ToString() == search_textBox.Text)
+                    {
+                        dataGridView1.Rows[i].Cells[j].Selected = true;
+                        ObjDetailsFill();
+                    }
+                }
+                    
+                       
+            }
+ 
+        }
     }
 }
 

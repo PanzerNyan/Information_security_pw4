@@ -46,6 +46,8 @@ namespace Information_security_4
             this.AddNewbutton = new System.Windows.Forms.Button();
             this.newpass_textBox = new System.Windows.Forms.TextBox();
             this.Change_button = new System.Windows.Forms.Button();
+            this.search_textBox = new System.Windows.Forms.TextBox();
+            this.Searchbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +63,11 @@ namespace Information_security_4
             this.PasswordColumn,
             this.AppColumn,
             this.DescriptionColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 43);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(659, 521);
+            this.dataGridView1.Size = new System.Drawing.Size(659, 490);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectPass);
             // 
@@ -212,11 +214,30 @@ namespace Information_security_4
             this.Change_button.UseVisualStyleBackColor = true;
             this.Change_button.Click += new System.EventHandler(this.Change_button_Click);
             // 
+            // search_textBox
+            // 
+            this.search_textBox.Location = new System.Drawing.Point(12, 12);
+            this.search_textBox.Name = "search_textBox";
+            this.search_textBox.Size = new System.Drawing.Size(311, 20);
+            this.search_textBox.TabIndex = 14;
+            // 
+            // Searchbutton
+            // 
+            this.Searchbutton.Location = new System.Drawing.Point(329, 13);
+            this.Searchbutton.Name = "Searchbutton";
+            this.Searchbutton.Size = new System.Drawing.Size(342, 19);
+            this.Searchbutton.TabIndex = 15;
+            this.Searchbutton.Text = "Search";
+            this.Searchbutton.UseVisualStyleBackColor = true;
+            this.Searchbutton.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
             // PassList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 545);
+            this.Controls.Add(this.Searchbutton);
+            this.Controls.Add(this.search_textBox);
             this.Controls.Add(this.Change_button);
             this.Controls.Add(this.newpass_textBox);
             this.Controls.Add(this.AddNewbutton);
@@ -259,5 +280,7 @@ namespace Information_security_4
         private System.Windows.Forms.Button AddNewbutton;
         private System.Windows.Forms.TextBox newpass_textBox;
         private System.Windows.Forms.Button Change_button;
+        private System.Windows.Forms.TextBox search_textBox;
+        private System.Windows.Forms.Button Searchbutton;
     }
 }
